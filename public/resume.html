@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshit Joshi — Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #39ff14;
+      --text: #111;
+      --muted: #555;
+      --border: #ddd;
+    }
+
+    body {
+      font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text);
+      background: #fff;
+      padding: 32px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    header .title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .contact-row {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+    }
+
+    .contact-row a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover { color: var(--text); }
+
+    .portfolio-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 7px 16px;
+      background: var(--accent);
+      color: #111;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 18px; }
+
+    h2 {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary p { color: var(--muted); }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 32px;
+    }
+
+    .skill-group h3 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .skill-group p { color: var(--muted); }
+
+    /* ── EXPERIENCE ── */
+    .job { margin-bottom: 12px; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .job-header .role {
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .job-header .company-year {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .job-header .company {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .job-header .year {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .active-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .job ul {
+      margin-top: 3px;
+      padding-left: 16px;
+    }
+
+    .job ul li { color: var(--muted); margin-bottom: 1px; }
+
+    /* ── PROJECTS ── */
+    .project { margin-bottom: 10px; }
+
+    .project-header strong { font-size: 13px; }
+
+    .project-cat {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    .tags {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #f3f3f3;
+      border-radius: 2px;
+      padding: 1px 6px;
+      margin: 2px 2px 0 0;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      gap: 16px;
+    }
+
+    .edu-item .deg { font-weight: 600; }
+    .edu-item .inst { color: var(--muted); font-size: 12px; }
+    .edu-item .year { color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+    .cert-note {
+      color: #888;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { padding: 0; font-size: 11px; }
+      .portfolio-btn { display: none; }
+      header { border-bottom: 1px solid #aaa; }
+      h2 { color: #111 !important; border-bottom-color: #aaa; }
+      .tags span { background: #eee; }
+      .active-dot { background: #111; }
+    }
+
+    @page { margin: 14mm 16mm; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header>
+    <div>
+      <h1>Harshit Joshi</h1>
+      <div class="title">Business Architect &amp; AI Engineer · Solution Architect · Frontend Developer</div>
+      <div class="contact-row">
+        <a href="mailto:me.harshitjoshi@gmail.com">me.harshitjoshi@gmail.com</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/meharshitjoshi" target="_blank" rel="noopener">linkedin.com/in/meharshitjoshi</a>
+        <span>·</span>
+        <a href="https://github.com/TheFoxian" target="_blank" rel="noopener">github.com/TheFoxian</a>
+        <span>·</span>
+        <a href="https://codepen.io/meharshit" target="_blank" rel="noopener">codepen.io/meharshit</a>
+      </div>
+    </div>
+    <div>
+      <a class="portfolio-btn" href="https://stealthdark.github.io/harshit-advance-portfolio/" target="_blank" rel="noopener">
+        View Portfolio &rarr;
+      </a>
+    </div>
+  </header>
+
+  <!-- ══ SUMMARY ══════════════════════════════════════════════ -->
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>
+      Frontend Developer &amp; Solution Architect with a razor-sharp eye for crafting elegant, high-performance digital experiences.
+      Deeply passionate about AI — actively engineering intelligent agents that drive business advancement and unlock actionable analytic growth.
+      Design seamless, scalable architectures tailored to real-world business challenges, bridging cutting-edge technology with practical, measurable outcomes.
+      A perpetual learner who stays ahead of market trends, bringing forward-thinking strategies that fuel sustainable growth.
+    </p>
+  </section>
+
+  <!-- ══ SKILLS ══════════════════════════════════════════════ -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Frontend &amp; UI</h3>
+        <p>Vue.js · Angular · TypeScript · JavaScript · Material UI · HTML5 · CSS3 · Advanced CSS Pre-Processors · React · GSAP · Three.js · WebGL</p>
+      </div>
+      <div class="skill-group">
+        <h3>AI &amp; Architecture</h3>
+        <p>AI Agents · LLMs · Python · Node.js · NestJS · REST APIs · Microservices · N8N · LangChain · MongoDB · MySQL · Docker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE ══════════════════════════════════════════ -->
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Solution Architect &amp; AI Engineer</span>
+        <div class="company-year">
+          <span class="company">Brew Digital<span class="active-dot"></span></span>
+          <span class="year">Now</span>
+        </div>
+      </div>
+      <ul>
+        <li>Architecting AI-driven solutions and tech strategies for digital products.</li>
+        <li>Bridging business goals with intelligent, scalable technical implementations.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Co Founder &amp; Development Lead</span>
+        <div class="company-year">
+          <span class="company">Eluntrix Digital<span class="active-dot"></span></span>
+          <span class="year">2025</span>
+        </div>
+      </div>
+      <ul>
+        <li>Co-founded a digital marketing agency empowering brands to grow and scale.</li>
+        <li>Build modern websites, mobile apps, and data-driven strategies that make businesses stand out.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Founder &amp; Product Owner</span>
+        <div class="company-year">
+          <span class="company">TixGrab<span class="active-dot"></span></span>
+          <span class="year">2024</span>
+        </div>
+      </div>
+      <ul>
+        <li>Conceived and launched an advanced smart event e-ticketing platform.</li>
+        <li>Managed product development, strategy, and full tech stack ownership.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Co-Founder &amp; Solution Architect</span>
+        <div class="company-year">
+          <span class="company">Acute Circle</span>
+          <span class="year">2022</span>
+        </div>
+      </div>
+      <ul>
+        <li>US-based marketing and media agency — served 100+ client projects.</li>
+        <li>Head of Business Logic, solution architecture and development.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Frontend Developer</span>
+        <div class="company-year">
+          <span class="company">Rubicotech<span class="active-dot"></span></span>
+          <span class="year">2021</span>
+        </div>
+      </div>
+      <ul>
+        <li>Built dynamic, responsive web applications using HTML, CSS, and FE JavaScript Frameworks.</li>
+        <li>Building AI-integrated web platforms and automating business workflows.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="role">Chatbot Developer Intern Trainee</span>
+        <div class="company-year">
+          <span class="company">IBM</span>
+          <span class="year">2020</span>
+        </div>
+      </div>
+      <ul>
+        <li>Kickstarted career building AI chatbots in IBM's 6-month trainee program.</li>
+        <li>Developed conversational AI solutions using IBM Watson and NLP.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══════════════════════════════════════════════ -->
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-header"><strong>TixGrab — Eticketing Platform</strong></div>
+      <div class="project-cat">Advanced SASS Multitenant Application for Event Ticketing</div>
+      <div class="tags">
+        <span>Vue.js</span><span>Node.js</span><span>Payment Gateway</span><span>AI Chatbot</span><span>Microservices</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header"><strong>30+ Wordpress Based Marketing Sites</strong></div>
+      <div class="project-cat">Marketing &amp; Media Websites for Diverse Clients — Acute Circle</div>
+      <div class="tags">
+        <span>Wordpress CMS</span><span>Child Themes</span><span>Advance PHP</span><span>Avada</span><span>Divi</span><span>Elementor</span><span>AI Modules</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header"><strong>Rubicotech Multiple Client Projects</strong></div>
+      <div class="project-cat">Modern Applications, Marketing Websites, AI SPA Web Applications</div>
+      <div class="tags">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vue.js</span><span>Angular</span><span>AI</span><span>Microservices</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header"><strong>Digital Marketing &amp; Media Solutions</strong></div>
+      <div class="project-cat">Meta Campaign, Marketing Consulting, Business Solution Architecture — Brew Digital</div>
+      <div class="tags">
+        <span>Facebook Ads Management</span><span>AEO &amp; Analytics</span><span>Collaborative AI</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header"><strong>Business Transformation &amp; Media Solutions</strong></div>
+      <div class="project-cat">SASS Solutions, Branding, Mobile Applications — Eluntrix Digital</div>
+      <div class="tags">
+        <span>Mobile Applications</span><span>Advance LLM</span><span>Client Consulting</span><span>Professional Branding</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EDUCATION ══════════════════════════════════════════════ -->
+  <section>
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <div>
+        <div class="deg">Master's in Computer Application (Graphics Dev)</div>
+        <div class="inst">Graphic Era University</div>
+      </div>
+      <span class="year">2022 – 2024</span>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="deg">BCA (Application Dev)</div>
+        <div class="inst">DIT — in collaboration with Oracle University</div>
+      </div>
+      <span class="year">2018 – 2021</span>
+    </div>
+
+    <p class="cert-note">Certifications: 6+ completed &nbsp;·&nbsp; 10+ in progress</p>
+  </section>
+
+</body>
+</html>
