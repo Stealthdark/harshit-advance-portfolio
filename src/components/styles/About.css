@@ -1,0 +1,193 @@
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  place-items: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  width: var(--cWidth);
+  margin: auto;
+}
+
+.about-card {
+  position: relative;
+  background: rgba(13, 13, 13, 0.65);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(57, 255, 20, 0.14);
+  border-radius: 20px;
+  padding: 52px 56px;
+  box-shadow:
+    0 0 0 1px rgba(57, 255, 20, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(57, 255, 20, 0.08);
+  overflow: hidden;
+  z-index: 2;
+  width: 45%;
+  animation: cardReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  border-top: 1.5px solid rgba(57, 255, 20, 0.5);
+  border-left: 1.5px solid rgba(57, 255, 20, 0.5);
+  pointer-events: none;
+}
+
+.about-card::after {
+  content: "";
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  border-bottom: 1.5px solid rgba(57, 255, 20, 0.5);
+  border-right: 1.5px solid rgba(57, 255, 20, 0.5);
+  pointer-events: none;
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-me {
+  padding: 0;
+  width: 100%;
+}
+
+.about-me h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: 400;
+  color: var(--accentColor);
+  position: relative;
+  display: inline-block;
+}
+
+.about-me h3::before,
+.about-me h3::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--accentColor);
+  pointer-events: none;
+}
+
+.about-me h3::before {
+  color: #39ff14;
+  text-shadow: -2px 0 #00e5ff;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  animation: glitchTop 5s infinite;
+}
+
+.about-me h3::after {
+  color: #39ff14;
+  text-shadow: 2px 0 #ff0066;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  animation: glitchBot 5s infinite 0.1s;
+}
+
+@keyframes glitchTop {
+  0%, 88%, 100% { transform: translate(0); opacity: 1; }
+  89%  { transform: translate(-4px, 1px);  opacity: 0.9; }
+  90%  { transform: translate(4px, -2px);  opacity: 0.9; }
+  91%  { transform: translate(-3px, 0);    opacity: 0.9; }
+  92%  { transform: translate(3px, 1px);   opacity: 0.9; }
+  93%  { transform: translate(0);          opacity: 1; }
+}
+
+@keyframes glitchBot {
+  0%, 86%, 100% { transform: translate(0); opacity: 1; }
+  87%  { transform: translate(4px, -1px);  opacity: 0.9; }
+  88%  { transform: translate(-4px, 2px);  opacity: 0.9; }
+  90%  { transform: translate(3px, -1px);  opacity: 0.9; }
+  92%  { transform: translate(0);          opacity: 1; }
+}
+
+.about-me p {
+  font-size: 1.15rem !important;
+  font-weight: 600;
+  line-height: clamp(28px, 2.4vw + 8px, 48px);
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    #e8e8e8 0%,
+    #e8e8e8 40%,
+    rgba(57, 255, 20, 0.55) 50%,
+    #e8e8e8 60%,
+    #e8e8e8 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShimmer 6s linear infinite;
+}
+
+@keyframes textShimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.about-scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .about-section {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .about-section {
+    width: var(--cWidth);
+    justify-content: flex-end;
+    max-width: 1920px;
+    height: var(--vh);
+    padding: 0px;
+  }
+  .about-card {
+    width: 52%;
+  }
+  .about-me {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .about-card {
+    padding: 36px 28px;
+    width: calc(100% - clamp(15px, 4vw, 70px));
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin: 50px auto;
+  }
+}

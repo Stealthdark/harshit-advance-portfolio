@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <clipPath id="circle">
+      <circle cx="32" cy="32" r="30" />
+    </clipPath>
+    <filter id="crisp" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="0" stdDeviation="0.5" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Flat neon background -->
+  <circle cx="32" cy="32" r="30" fill="#39ff14" />
+
+  <!-- HJ monogram — dark for maximum contrast -->
+  <text
+    x="32" y="43"
+    font-family="'Arial Black', Impact, sans-serif"
+    font-size="28"
+    font-weight="900"
+    text-anchor="middle"
+    fill="#0a0a0a"
+    filter="url(#crisp)"
+    clip-path="url(#circle)">HJ</text>
+</svg>
