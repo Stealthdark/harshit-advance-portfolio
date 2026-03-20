@@ -1,5 +1,21 @@
 import { PropsWithChildren } from "react";
+import { FiDownload } from "react-icons/fi";
 import "./styles/Landing.css";
+
+const handleDownload = async () => {
+  const res = await fetch('/harshit-advance-portfolio/resume.html');
+  const html = await res.text();
+  const container = document.createElement('div');
+  container.innerHTML = html;
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:860px';
+  document.body.appendChild(container);
+  const html2pdf = (await import('html2pdf.js')).default;
+  await html2pdf()
+    .set({ filename: 'Harshit_Joshi_Resume.pdf', margin: 0, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'px', format: 'a4', orientation: 'portrait' } })
+    .from(container)
+    .save();
+  document.body.removeChild(container);
+};
 
 const Landing = ({ children }: PropsWithChildren) => {
   return (
@@ -13,6 +29,9 @@ const Landing = ({ children }: PropsWithChildren) => {
               <br />
               <span>JOSHI</span>
             </h1>
+            <button className="resume-download-btn" onClick={handleDownload}>
+              <FiDownload /> Download Resume
+            </button>
           </div>
           <div className="landing-info">
             <h3>Business Architect &</h3>
